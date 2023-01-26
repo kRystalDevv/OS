@@ -3,16 +3,22 @@ void topstyle(); //styping top//
 void bottomstyle(); //styling bottom//
 void menu(); //menu 1, 2, 3//
 void foodmenu(); //food items//
+void warning();
 void options(); //
 int order();
 void transaction(int i, int j);
 int taxcalc(int price);
-void priceHandler(int quantity, int pricing);
+int priceHandler(int quantity, int pricing);
 int orderHandler(int quantity, int itemtype);
+
+//dark mode ke liay 1 dabyen, light mode ke liay 0 dabyen :)//
+int darkMode = 0;
+int cF();
 
 
 int main()
 {
+  cF(darkMode);
   menu();
   return 0;
 }
@@ -22,6 +28,20 @@ void topstyle() {
 }
 void bottomstyle() {
   printf("\n======================================\n");
+}
+
+int cF(int darkMode)
+{
+	if(darkMode == 1)
+	{
+		system("color 07");
+		return 0;
+	}
+	else if(darkMode == 0)
+	{
+		system("color F0");
+		return 0;
+	}
 }
 
 void menu() {
@@ -58,6 +78,17 @@ void foodmenu() {
   printf("\t550 PKR -> McSpicy\n");
   printf("\t450 PKR -> McNotSpicy\n");
   printf("\t600 PKR -> McRoyale\n");
+}
+
+void warning()
+{
+	system("cls");
+	system("color 4");
+	printf("\t\t\tWARNING!\n\n");
+	printf("\t->Quantity can't be less than or equal to 0<-\n\n\t\t==Terminating Order!==\n\n\t");
+	system("pause");
+	cF(darkMode);
+	system("cls");
 }
 
 void options() {
@@ -157,7 +188,7 @@ int taxcalc(int price) {
   return price;
 }
 
-void priceHandler(int quantity, int pricing)
+int priceHandler(int quantity, int pricing)
 {
   int price = 0, temp = 0, aftertax = 0;
   price = quantity * pricing;
@@ -177,11 +208,8 @@ int orderHandler(int quantity, int itemtype) {
   };
     if(quantity <= 0)
     {
-      system("cls");
-      system("color 4");
-        printf("\t\t\tWARNING!\n\n");
-        printf("\t->Quantity can't be less than or equal to 0<-\n\n\t\t==Terminating Order!==\n\n\t");
-        system("pause");
+    	warning();
+        menu();
         return 1;
     }
     else
