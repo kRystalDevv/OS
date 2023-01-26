@@ -7,6 +7,7 @@ void options(); //
 int order();
 void transaction(int i, int j);
 int taxcalc(int price);
+void priceHandler(int quantity, int pricing);
 int orderHandler(int quantity, int itemtype);
 
 
@@ -69,7 +70,7 @@ int order() {
   // int exit = 0;//
   // printf("Enter %d finish ordering\nFood: ", exit);//
   int choice = 0, price = 0, total = 0, newtotal = 0;
-  int quantity = 1;
+  int quantity = 0;
   int pricing[4] = {
     500, //0//
     550, //1//
@@ -77,7 +78,7 @@ int order() {
     600 //3//
   };
   topstyle();
-  printf("\nPick a burger! \n-> [1, 2, 3, 4] <-\nBurger: ");
+  printf("\n\tPick a burger! \n\t-> [1, 2, 3, 4] <-\n\nBurger: ");
   scanf("%d", &choice);
   switch (choice) {
   case 1:
@@ -89,36 +90,48 @@ int order() {
     }
     else
     {
-      price = quantity * pricing[0];
-      total += price;
-      newtotal += taxcalc(total);
-      printf("Your Total is -> %d", newtotal);
+      priceHandler(quantity, pricing[0]);
       choice = 0;
     }
     break;
   case 2:
     printf("How many McSpicy would you like?\nQuantity: ");
     scanf("%d", &quantity);
-    price = quantity * pricing[1];
-    total += price;
-    newtotal += taxcalc(total);
-    printf("Your Total is -> %d", newtotal);
+    if((orderHandler(quantity, pricing[choice])) == 1)
+    {
+      return 1;
+    }
+    else
+    {
+      priceHandler(quantity, pricing[1]);
+      choice = 0;
+    }
     break;
   case 3:
     printf("How many McNotSpicy would you like?\nQuantity: ");
     scanf("%d", &quantity);
-    price = quantity * pricing[2];
-    total += price;
-    newtotal += taxcalc(total);
-    printf("Your Total is -> %d", newtotal);
+    if((orderHandler(quantity, pricing[choice])) == 1)
+    {
+      return 1;
+    }
+    else
+    {
+      priceHandler(quantity, pricing[2]);
+      choice = 0;
+    }
     break;
   case 4:
     printf("How many McRoyale would you like?\nQuantity: ");
     scanf("%d", &quantity);
-    price = quantity * pricing[3];
-    total += price;
-    newtotal += taxcalc(total);
-    printf("Your Total is -> %d", newtotal);
+    if((orderHandler(quantity, pricing[choice])) == 1)
+    {
+      return 1;
+    }
+    else
+    {
+      priceHandler(quantity, pricing[3]);
+      choice = 0;
+    }
     break;
   default:
     printf("Invalid, Please Repeat Again.\nExiting to Menu!");
@@ -137,9 +150,21 @@ void transaction(int i, int j) {
 
 int taxcalc(int price) {
   int tax = 0;
-  tax = price * 0.12;
+  tax = price * 0.03;
   price += tax;
+  topstyle();
+  printf("Tax -> %d\n", tax);
   return price;
+}
+
+void priceHandler(int quantity, int pricing)
+{
+  int price = 0, temp = 0, aftertax = 0;
+  price = quantity * pricing;
+  temp = price;
+  aftertax += taxcalc(temp);
+  printf("Your Total is -> %d", aftertax);
+  return aftertax;
 }
 
 int orderHandler(int quantity, int itemtype) {
@@ -168,5 +193,9 @@ int orderHandler(int quantity, int itemtype) {
       printf("Invalid Order!");
       break;
     }
+    else
+    {
+    	return 0;
+	}
   }
 }
