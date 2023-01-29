@@ -1,15 +1,10 @@
 #include <stdio.h>
-#include "Menu.h"
-#include "OrderB.h"
-#include "style.h"
-#include "checkout.h"
+#include "header\Menu.h"
+#include "header\OrderB.h"
+#include "header\style.h"
+#include "header\checkout.h"
 
-void start2();
 void main()
 {
-  start2();
+  run();
 }
-
-
-
-
