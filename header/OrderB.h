@@ -1,32 +1,33 @@
-int pricing[4] = {
+//Set Prices for//
+int pricing[4] = 
+{
     500, //0//
     550, //1//
     450, //2//
     600, //3//
-    
-	  };
-char burger[4][50] = {
-	    "McChicken    ", //0//
-	    "McSpicy      ", //1//
-	    "McCrispy     ", //2//
-	    "McRoyale     ", //3//
-	    
-	  };
+};
+char burger[4][50] = 
+{
+    "McChicken    ", //0//
+    "McSpicy      ", //1//
+    "McCrispy     ", //2//
+    "McRoyale     ", //3//
+};
 	  
-int pricingd[4] = {
+int pricingd[4] = 
+{
     100, //0//
     120, //1//
     120, //2//
     120, //3//
-    
-	  };
-	char drinks[4][50] = {
-	    "Sting     ", //0//
-	    "Coke      ", //1//
-	    "Fanta     ", //2//
-	    "7up       ", //3//
-	    
-	  };
+};
+char drinks[4][50] = 
+{
+	"Sting     ", //0//
+	"Coke      ", //1//
+	"Fanta     ", //2//
+	"7up       ", //3//
+};
 
 int pricingf[3] = {
     200, //0//
@@ -46,6 +47,7 @@ totalb = 0,
 totalf = 0,
 totald = 0,
 
+//number of items- quantity dependent//
 total_products = 0,
 total_productsf = 0,
 total_productsd = 0,
@@ -66,11 +68,13 @@ quantity = 0,
 quantityf = 0,
 quantityd = 0, 
 
+//
 price = 0,
 pricef = 0, 
 priced = 0,
 
-nburgers = 0,
+//quantities of items//
+nburgers = 0, 
 nfries = 0,
 ndrinks = 0,
 
@@ -79,36 +83,33 @@ char ch, chf, chd;
 int priceHandler();
 
 
-void orderBurgers() {
-  // int exit = 0;//
-  // printf("Enter %d finish ordering\nFood: ", exit);//
-  	
+void orderBurgers() {  	
   	printf("How many Burgers would you like?\nQuantity: ");
-	scanf("%d", &nburgers);
+	scanf("%d", &nburgers); 
   	
   	total_products += nburgers;
   	printf("new burger is added, %d", total_products);
   	printf("\nYou have selected %d burgers...",nburgers);
   	if(nburgers == 0)
 	{
-		Menu();
-	
+		Menu();	
 	}
-	int selected_burgers[nburgers];
+	int selected_burgers[nburgers]; //stores choices of the burgers you've picked!//
   	do
   	{
-  		
-  		Burgers();
+  		x:
+  		Burgers(); //prints burger menu//
   		printf("\n\tPick a choice for burger! \n\t-> [1, 2, 3, 4] <-\n\nBurger: ");
-		scanf("%d", &choice);
+		scanf("%d", &choice); 
 		if (choice == 1 || choice == 2 || choice == 3 || choice == 4)
 		{
+			clearScreen();
 			selected_burgers[i] = choice - 1;
 		}
-		else {	
+		else {
+			clearScreen();
 			printf("\nWrong choice....\n");
-			printf("\n\tPick a choice for burger! \n\t-> [1, 2, 3, 4] <-\n\nBurger: ");
-			scanf("%d", &choice);
+			goto x;
 		}
 		
 		i +=1;
@@ -162,7 +163,8 @@ void orderFries() {
 	int selected_fries[nfries];
   	do
   	{
-  		
+  		y:
+		clearScreen(); 		
   		FriesMenu();
   		printf("\n\tPick a choice for Fries! \n\t-> [1, 2, 3, 4] <-\n\nFries: ");
 		scanf("%d", &choicef);
@@ -172,8 +174,8 @@ void orderFries() {
 		}
 		else {	
 			printf("\nWrong choice....\n");
-			printf("\n\tPick a choice for fries! \n\t-> [1, 2, 3, 4] <-\n\nFries: ");
-			scanf("%d", &choicef);
+			clearScreen();
+			goto y;
 		}
 		
 		f +=1;
@@ -227,7 +229,8 @@ void orderDrinks() {
 	int selected_drinks[ndrinks];
   	do
   	{
-  		
+  		z:
+  		clearScreen();
   		DrinksMenu();
   		printf("\n\tPick a choice for Drink! \n\t-> [1, 2, 3, 4, 5] <-\n\nDrinks: ");
 		scanf("%d", &choiced);

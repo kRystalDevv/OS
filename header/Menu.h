@@ -1,10 +1,13 @@
-
+void orderBurgers();
+void orderDrinks();
+void orderFries();
+void cF();
+void clearScreen();
 int option = 0;
 void run();
-void orderBurgers();
-void orderFries();
-void orderDrinks();
 
+
+//tada//
 void options() {
   printf("1 -> Burgers\n");
   printf("2 -> Fries\n");
@@ -13,9 +16,9 @@ void options() {
   printf("5 -> Total your Order\n\n");
 }
 
-
+//tada//
 void Burgers() {
-  printf("Burgers\n \n ");
+  printf("\n\t\tBurgers\n \n ");
   printf("\t1 - 500 PKR -> McChicken       \n");
   printf("\t2 - 550 PKR -> McSpicy         \n");
   printf("\t3 - 450 PKR -> McCrispy        \n");
@@ -25,7 +28,7 @@ void Burgers() {
   
 }
 void FriesMenu(){
-	printf("Fries\n \n ");
+	printf("\n\t\tFries\n \n ");
 	printf("\t1 - 200 PKR -> Small \n");
 	printf("\t2 - 300 PKR -> Medium \n");
 	printf("\t3 - 400 PKR -> Large \n\n");
@@ -35,7 +38,7 @@ void FriesMenu(){
 }
 
 void DrinksMenu(){
-	printf("\t\tDrinks\n \n ");
+	printf("\n\t\tDrinks\n \n ");
 	printf("\t1 - 100 PKR -> Sting \n");
 	printf("\t2 - 120 PKR -> Coke \n");
 	printf("\t3 - 120 PKR -> Fanta \n");
@@ -45,24 +48,29 @@ void DrinksMenu(){
 
 void Menu(){
 	b:
+	clearScreen();
 	printf("\nWhat would you like to order: \n");
-	options();
+	options(); //prints option function//
 	scanf("%d", &option);
-	
+	//enters switch case and asks for different stuff//
 	switch(option){
 		case 1:
-			Burgers();
-			orderBurgers();
+			clearScreen();
+			Burgers(); //menu for burgers//
+			orderBurgers(); //burger ordering function//
 			break;
 		case 2:
-			FriesMenu();
-			orderFries();
+			clearScreen();
+			FriesMenu(); //menu for fries//
+			orderFries(); //fries ordering function//
 			break;
 		case 3:
-			DrinksMenu();
-			orderDrinks();
+			clearScreen();
+			DrinksMenu(); //menu for drinks//
+			orderDrinks(); //drink ordering function//
 			break;
 		case 4:
+			clearScreen();
 			goto b;
 			break;	
 		default:
@@ -73,24 +81,26 @@ void Menu(){
 	
 }
 
-int Welcome()
+int Welcome() //prompts a message which asks for order placement//
 {
 	char msg ;
 	printf("\t Hi- Welcome to Mini-Resturant... \n");
 	printf("\t Would you like to place an order..? \n\t Press Y for yes, N for no!\n\n-> ");
 	scanf("%c", &msg);
 	printf("\nYou have selected %c \n",msg);
-	if(msg == 'y' || msg == 'Y')
+	if(msg == 'y' || msg == 'Y') //asks yes or no//
 	{
 		Menu();
 	}
 	else if (msg == 'n' || msg == 'N')
 	{
 		printf("Me Kehta hun phr sochlo\n ");
+		return 0;
 	}
 	else 
 	{
 		printf("Typing Error! pls choose either y for YES or n for NO! ");
+		return 0;
 	}
 
 	
@@ -99,6 +109,7 @@ int Welcome()
 
 void run()
 {
-	cF();
-	Welcome();
+	int darkMode = 0; //change value for diff color//
+	cF(darkMode); //color function//
+	Welcome(); 
 }
