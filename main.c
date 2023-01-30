@@ -1,15 +1,10 @@
 #include <stdio.h>
-#include "Menu.h"
-#include "OrderB.h"
-#include "style.h"
-#include "checkout.h"
+#include "header\Menu.h" //All order functions//
+#include "header\OrderB.h" //All order handling//
+#include "header\style.h" //Change styles from here//
+#include "header\checkout.h" //Tax and Price handlers//
 
-void start2();
 void main()
 {
-  start2();
+  run(); 
 }
-
-
-
-
