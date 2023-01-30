@@ -25,7 +25,7 @@ No installation is required.
 -> The development team is continuously working to improve the program and add new features. Stay tuned for future updates.
 
 ## Known Limitations and Bugs:
--> No known bugs or limitations have been identified at this time. If you encounter any issues, please report them on our Github page: [Bug Report]https://github.com/kRystalDevv/OS
+-> No known bugs or limitations have been identified at this time. If you encounter any issues, please report them on our Github page: [Bug Report](https://github.com/kRystalDevv/OS)
 
 ## Support and Feedback:
--> For support and feedback, please reach out to the development team through our Github page: [Feedback]https://github.com/kRystalDevv/OS
+-> For support and feedback, please reach out to the development team through our Github page: [Feedback](https://github.com/kRystalDevv/OS)
