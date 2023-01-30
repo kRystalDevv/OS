@@ -1,5 +1,5 @@
 # -> Restaurant Ordering System (OS) <-
-## => A C program developed by CS221003 & CS221007
+## A C program developed by CS221003 & CS221007
 
 ## Overview:
 The Restaurant Ordering System allows users to place food orders from a menu of burgers, fries, and drinks. 
