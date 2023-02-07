@@ -1,4 +1,4 @@
-# -> Restaurant Ordering System (OS) <-
+# Restaurant Ordering System (OS)
 ## A C program developed by CS221003 & CS221007
 
 ## Overview:
