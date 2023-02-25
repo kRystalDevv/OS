@@ -86,7 +86,7 @@ int priceHandler();
 void orderBurgers() {  	
   	printf("How many Burgers would you like?\nQuantity: ");
 	scanf("%d", &nburgers); 
-  	
+  	clearScreen();
   	total_products += nburgers;
   	printf("new burger is added, %d", total_products);
   	printf("\nYou have selected %d burgers...",nburgers);
@@ -127,13 +127,14 @@ void orderBurgers() {
       total_price += pricing[r];
 	  printf("           Rs %d\n", pricing[r]); 
 	}
-  	printf("Would you like to go to menu or proceed to checkout..? \n press 1: checkout \n press 0: Menu...\n");
+  	printf("Would you like to go to menu or proceed to checkout..? \n press 1: checkout \n press 0: Menu...\n\nChoice: ");
   	scanf("%d", &o);
   	
   	total += total_price;
   	if( o == 1)
   	{	
-  		printf("\n Your total price excluding tax is: %d", total);
+		clearScreen();
+  		printf("\nYour total price excluding tax is: %d", total);
   		priceHandler(total);
 	  }
 	else
@@ -150,7 +151,7 @@ void orderFries() {
   	
   	printf("How many Packets of Fries would you like?\nQuantity: ");
 	scanf("%d", &nfries);
-  	
+  	clearScreen();
   	total_productsf += nfries;
   	
   	printf("\nYou have selected %d number of fries...",nfries);
@@ -194,11 +195,12 @@ void orderFries() {
 	  printf("           Rs %d\n", pricingf[rf]); 
 	}
   	total += total_pricef;
-  	printf("Would you like to order something else, or proceed to checkout..? \n press 1: checkout \n press 0: Menu...\n");
+  	printf("Would you like to order something else, or proceed to checkout..? \n press 1: checkout \n press 0: Menu...\n\nChoice: ");
   	scanf("%d", &of);
   	
   	if( of == 1)
   	{	
+		clearScreen();
   		printf("\n Your total price excluding tax is: %d", total);
   		priceHandler(total);
 	  }
@@ -216,7 +218,7 @@ void orderDrinks() {
   	
   	printf("How many Drinks would you like?\nQuantity: ");
 	scanf("%d", &ndrinks);
-  	
+  	clearScreen();
   	total_productsd += ndrinks;
   	printf("\nYou have selected %d Drinks...",ndrinks);
   	if(ndrinks == 0)
@@ -232,15 +234,15 @@ void orderDrinks() {
   		z:
   		clearScreen();
   		DrinksMenu();
-  		printf("\n\tPick a choice for Drink! \n\t-> [1, 2, 3, 4, 5] <-\n\nDrinks: ");
+  		printf("\n\tPick a choice for Drink! \n\t-> [1, 2, 3, 4] <-\n\nDrinks: ");
 		scanf("%d", &choiced);
-		if (choiced == 1 || choiced == 2 || choiced == 3 || choiced == 4 || choiced == 5)
+		if (choiced == 1 || choiced == 2 || choiced == 3 || choiced == 4)
 		{
 			selected_drinks[d] = choiced - 1;
 		}
 		else {	
 			printf("\nWrong choice....\n");
-			printf("\n\tPick a choice for drink! \n\t-> [1, 2, 3, 4, 5] <-\n\nDrinks: ");
+			printf("\n\tPick a choice for drink! \n\t-> [1, 2, 3, 4] <-\n\nDrinks: ");
 			scanf("%d", &choiced);
 		}
 		
@@ -260,11 +262,12 @@ void orderDrinks() {
 	  printf("           Rs %d\n", pricingd[rd]); 
 	}
   	total += total_priced;
-  	printf("Would you like to order something else, or proceed to checkout..? \n press 1: checkout \n press 0: Menu...\n");
+  	printf("Would you like to order something else, or proceed to checkout..? \n press 1: checkout \n press 0: Menu...\n\nChoice: ");
   	scanf("%d", &od);
   	
   	if( od == 1)
   	{	
+		clearScreen();
   		printf("\n Your total price excluding tax is: %d", total);
   		priceHandler(total);
 	  }
